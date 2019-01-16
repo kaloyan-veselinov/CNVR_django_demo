@@ -47,7 +47,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cnvrdemo.wsgi.application'
 
-if os.environ['production']:
+if 'production' in os.environ:
     DATABASES = {
         'default': {
             'ENGINE': os.environ['DB_ENGINE'],

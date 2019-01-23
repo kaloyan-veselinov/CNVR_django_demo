@@ -6,8 +6,6 @@ SECRET_KEY = '#)ya=s(5d_l*6iikdh2ub6=%(s99$@nw=chal@35xm1d+qi4+z'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 INSTALLED_APPS = [
     'demo.apps.DemoConfig',
     'django.contrib.admin',
@@ -49,6 +47,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'cnvrdemo.wsgi.application'
 
 if 'production' in os.environ:
+    ALLOWED_HOSTS = [os.environ['ALLOWED_HOSTS'], localhost, 127.0.0.1]
     DATABASES = {
         'default': {
             'ENGINE': os.environ['DB_ENGINE'],
@@ -60,6 +59,7 @@ if 'production' in os.environ:
         }
     }
 else:
+    ALLOWED_HOSTS = [localhost, 127.0.0.1]
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',

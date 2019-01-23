@@ -47,7 +47,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'cnvrdemo.wsgi.application'
 
 if 'production' in os.environ:
-    ALLOWED_HOSTS = [os.environ['ALLOWED_HOSTS'], localhost, 127.0.0.1]
+    ALLOWED_HOSTS = [os.environ['ALLOWED_HOSTS'], "localhost", "127.0.0.1"]
     DATABASES = {
         'default': {
             'ENGINE': os.environ['DB_ENGINE'],
@@ -59,7 +59,7 @@ if 'production' in os.environ:
         }
     }
 else:
-    ALLOWED_HOSTS = [localhost, 127.0.0.1]
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
